@@ -1,6 +1,6 @@
 /*
-* Javascript convertation of window query string to JSON
-* https://github.com/redlive/queryStringToJSON
+* Javascript convertation of window query string to Array
+* https://github.com/redlive/queryStringToArray
 *
 * Created; 02/12/2013 by Vilder Eugene
 */
@@ -8,7 +8,7 @@
 (function(global){
 	"use strict";  
 
-	global.location.queryStringToJSON = function(){
+	global.location.queryStringToArray = function(){
 		var queryString = global.location.href.replace('?','&').replace('&&','&');
 		var parseQueryString = function(q) {
 			var queryStringArr = q.split('&').slice(1);
