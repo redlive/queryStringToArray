@@ -1,13 +1,13 @@
-Query String To JSON
+Query String To Array
 =======================
 
-JS convertation of window query string to JSON format
+JS convertation of window query string to Array
 
 
 Usage
 ========
 
-var arr = window.location.queryStringToJSON();
+var arr = window.location.queryStringToArray();
 
 
 License
