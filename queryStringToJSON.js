@@ -14,10 +14,10 @@
 			var queryStringArr = q.split('&').slice(1);
 			return queryStringArr.map(function(val,ind){
 				var q = val.split('='),        
-					res = {};
-				res.key = q[0];
-				res.value = q[1];
-				return res;        
+				return {
+					key : q[0],
+					res.value : q[1]
+				};        
 			});
 		}
 	return queryString.length == 0 ? [] : parseQueryString(queryString);
