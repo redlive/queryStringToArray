@@ -9,18 +9,18 @@
 	"use strict";  
 
 	global.location.queryStringToJSON = function(){
-		var queryString = global.location.pathname.replace('?','&').replace('&&','&');
+		var queryString = global.location.href.replace('?','&').replace('&&','&');
 		var parseQueryString = function(q) {
 			var queryStringArr = q.split('&').slice(1);
 			return queryStringArr.map(function(val,ind){
-				var q = val.split('='),        
+				var q = val.split('=');        
 				return {
 					key : q[0],
 					res.value : q[1]
 				};        
 			});
 		}
-	return queryString.length == 0 ? [] : parseQueryString(queryString);
-}
+		return queryString.length == 0 ? [] : parseQueryString(queryString);
+	}
 
 })(window);
