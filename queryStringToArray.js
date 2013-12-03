@@ -1,5 +1,5 @@
 /*
-* Javascript convertation of window query string to Array
+* Javascript convertation of window query string to Array , Object
 * https://github.com/redlive/queryStringToArray
 *
 * Created; 02/12/2013 by Vilder Eugene
@@ -7,11 +7,13 @@
 
 (function(global){
 	"use strict";  
-
-	global.location.queryStringToArray = function(){
-		var queryString = global.location.href.replace('?','&').replace('&&','&');
-		var parseQueryString = function(q) {
-			var queryStringArr = q.split('&').slice(1);
+	
+	function QueryString(){
+		
+		var queryStr = global.location.href.replace('?','&').replace('&&','&') || '';
+		var queryStringArr = queryStr.split('&').slice(1);
+			
+		var parseQueryStringToArray = function() {
 			return queryStringArr.map(function(val,ind){
 				var q = val.split('=');        
 				return {
@@ -20,7 +22,32 @@
 				};        
 			});
 		}
-		return queryString.length == 0 ? [] : parseQueryString(queryString);
+		
+		var parseQueryStringToObject = function() {
+			var i , item , key, value , res = {};
+			for (i in queryStringArr) {
+				item = queryStringArr[i].split('=');
+				key = item[0];
+				value = item[1];
+				res[key] = value;
+			}
+			return res;
+		}
+		
+		var toArray = function(){
+			return queryStr.length == 0 ? [] : parseQueryStringToArray();
+		};
+		
+		var toObject = function(){
+			return queryStr.length == 0 ? {} : parseQueryStringToObject();
+		};
+		
+		return {
+			toArray : toArray,
+			toObject : toObject
+		}
 	}
+	
+	global.queryString = QueryString();
 
 })(window);
