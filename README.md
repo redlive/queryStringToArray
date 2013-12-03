@@ -7,7 +7,9 @@ JS convertation of window query string to Array
 Usage
 ========
 
-var arr = window.location.queryStringToArray();
+var arr = queryString.toArray();
+
+var obj = queryString.toObject();
 
 
 License
