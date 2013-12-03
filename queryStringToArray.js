@@ -16,7 +16,7 @@
 				var q = val.split('=');        
 				return {
 					key : q[0],
-					res.value : q[1]
+					value : q[1]
 				};        
 			});
 		}
