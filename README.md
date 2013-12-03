@@ -1,7 +1,7 @@
-Query String To Array
+Query String To Array / Object
 =======================
 
-JS convertation of window query string to Array
+JS convertation of window query string to Array / Object
 
 
 Usage
